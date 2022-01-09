@@ -7,7 +7,6 @@ import {
 import { Socket, Server } from 'socket.io';
 import { forwardRef, Inject, Logger } from '@nestjs/common';
 import { UsersService } from 'src/user/user.service';
-import { User } from 'src/user/user-schema';
 
 @WebSocketGateway({ namespace: '/chat' })
 export class ChatGateway implements OnGatewayInit {
@@ -49,12 +48,9 @@ export class ChatGateway implements OnGatewayInit {
       message: string;
     },
   ) {
-    //console.log(this.hello);
     this.hello = await this.userService.getUsers(messages.room);
     this.mshistory = this.hello;
     this.wss.emit('ReturnClient', this.mshistory);
-    //console.log(this.mshistory);
-    //this.wss.to(messages.room).emit('ReturnToClient', messages);
   }
 
   @SubscribeMessage('joinRoom')
