@@ -98,7 +98,7 @@
                 },
                 getAll(data)
                 {
-                    this.hello.push(data);            
+                    this.history.push(data);            
                 },
                 receiveChatMessage(msg) {
                     this.messages[msg.room].push(msg);
@@ -130,7 +130,6 @@
                 });
                 this.socket.chat.on('ReturnClient', (data) => {
                     this.getAll(data);
-                    //console.log(data);
                 });
                 this.socket.chat.on('joinedRoom', (room) => {
                     this.rooms[room] = true;
