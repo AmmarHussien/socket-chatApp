@@ -43,10 +43,10 @@
                 <p >
                     <h3>History</h3>
                     <ul>
-                        <li v-for= "hello2 in hello">
+                        <li v-for= "history2 in history">
                             <ul>
-                               <li v-for= "hello3 in hello2">
-                                 <strong>{{ hello3.username }}:</strong> {{ hello3.message }}
+                               <li v-for= "history3 in history2">
+                                 <strong>{{ history3.username }}:</strong> {{ history3.message }}
                                </li>
                             </ul>
                         </li>
@@ -69,7 +69,7 @@
                     typescript: [],
                     nestjs: []
                 },
-                hello: [],
+                history: [],
                 socket: { chat: null,alerts: null },
                 alerts: [],
                 activeRoom: 'general',
